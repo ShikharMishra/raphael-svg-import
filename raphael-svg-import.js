@@ -71,6 +71,10 @@ Raphael.fn.importSVG = function (rawSVG, set) {
       }
       
       shape.attr(attr);
+
+      //In Raphael, element's id is stored as an attribute of the element object
+      // and not as a property accessable by attr function of the element.
+      shape.id = attr['id'];
       
       if (typeof set !== 'undefined')
         set.push(shape);
